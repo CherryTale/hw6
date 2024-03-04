@@ -91,7 +91,7 @@ If a chatroom is specified that does not exist, a `404` will be returned.
 ### Registering a User
 `POST` `https://cs571.org/api/s24/hw6/register`
 
-You must register a user with a specified `username` and `password`. 
+You must register a user with a specified `username` and `password`. Only the password is case-sensitive.
 
 Requests must include credentials as well as a header `Content-Type: application/json`.
 
@@ -148,7 +148,7 @@ If the `username` is longer than 64 characters or if the `password` is longer th
 
 `POST` `https://cs571.org/api/s24/hw6/login`
 
-You must log a user in with their specified `username` and `password`.
+You must log a user in with their specified `username` and `password`. Only the password is case-sensitive.
 
 Requests must include credentials as well as a header `Content-Type: application/json`.
 

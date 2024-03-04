@@ -38,6 +38,7 @@ When making API calls with a request body, don't forget to include the header `"
 ## Important
 
  - The screenshots below are just an example; the names of chatrooms and posts will change from semester to semester.
+ - While passwords *are* case-sensitive, usernames *are not* case-sensitive.
  - Chatroom names are guaranteed to be unique.
  - Each post has an `id` which is guaranteed to be unique.
 
