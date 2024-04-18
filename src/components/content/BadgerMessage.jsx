@@ -1,7 +1,25 @@
-import React from "react"
-import { Card } from "react-bootstrap";
+import React, { useContext } from "react"
+import { Card, Button } from "react-bootstrap";
+import BadgerLoginStatusContext from '../contexts/BadgerLoginStatusContext';
 
 function BadgerMessage(props) {
+
+    const [loginStatus, setLoginStatus] = useContext(BadgerLoginStatusContext);
+    
+    const handlePostDelete = () => {
+        fetch(`https://cs571.org/api/s24/hw6/messages?id=${props.id}`,{
+            method: "DELETE",
+            credentials: "include",
+            headers: {
+                "X-CS571-ID": CS571.getBadgerId(),
+            },
+        }).then(res => {
+            if(res.status === 200){
+                console.log("Successfully deleted the post!");
+                props.loadMessages();
+            }
+        })
+    }
 
     const dt = new Date(props.created);
 
@@ -11,6 +29,10 @@ function BadgerMessage(props) {
         <br/>
         <i>{props.poster}</i>
         <p>{props.content}</p>
+        <br/>
+        {
+            loginStatus === props.poster && <Button variant="danger" onClick={handlePostDelete}>Delete Post</Button>
+        }
     </Card>
 }
 
