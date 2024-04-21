@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router';
 import BadgerLoginStatusContext from '../contexts/BadgerLoginStatusContext';
 
@@ -46,8 +46,9 @@ export default function BadgerRegister() {
         }
     }
 
-    return <>
+    return <Container>
         <h1>Register</h1>
+        <hr/>
         <Form onSubmit={handleRegisterSubmit}>
             <Form.Label htmlFor="usernameInput">Username</Form.Label>
             <Form.Control id="usernameInput" value={username} onChange={(e) => setUsername(e.target.value)}></Form.Control>
@@ -60,5 +61,5 @@ export default function BadgerRegister() {
             <br/>
             <Button type="submit">Register</Button>
         </Form>
-    </>
+    </Container>
 }

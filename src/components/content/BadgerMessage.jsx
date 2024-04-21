@@ -2,6 +2,11 @@ import React, { useContext } from "react"
 import { Card, Button } from "react-bootstrap";
 import BadgerLoginStatusContext from '../contexts/BadgerLoginStatusContext';
 
+const cardStyles = {
+    margin: "0.8rem 0",
+    boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px"
+}
+
 function BadgerMessage(props) {
 
     const [loginStatus, setLoginStatus] = useContext(BadgerLoginStatusContext);
@@ -23,15 +28,26 @@ function BadgerMessage(props) {
 
     const dt = new Date(props.created);
 
-    return <Card style={{margin: "0.5rem", padding: "0.5rem"}}>
-        <h2>{props.title}</h2>
-        <sub>Posted on {dt.toLocaleDateString()} at {dt.toLocaleTimeString()}</sub>
-        <br/>
-        <i>{props.poster}</i>
-        <p>{props.content}</p>
-        <br/>
+    return <Card style={cardStyles}>
+        <Card.Header as="h4">{props.title}</Card.Header>
+        <Card.Body>
+            <p>
+                {props.content}
+            </p>
+            <footer className="blockquote-footer">
+                {props.poster}
+            </footer>
+            <p style={{marginBottom:"0", fontSize:"0.8rem", color:"#888"}}>
+                Posted on {dt.toLocaleDateString()} at {dt.toLocaleTimeString()}
+            </p>
+        </Card.Body>
         {
-            loginStatus === props.poster && <Button variant="danger" onClick={handlePostDelete}>Delete Post</Button>
+            loginStatus === props.poster &&
+                <Card.Footer>
+                    <Button variant="danger" onClick={handlePostDelete} style={{width:"100%"}}>
+                        Delete Post
+                    </Button>
+                </Card.Footer>
         }
     </Card>
 }

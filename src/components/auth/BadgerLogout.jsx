@@ -1,5 +1,5 @@
-
 import React, { useEffect, useContext, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import BadgerLoginStatusContext from '../contexts/BadgerLoginStatusContext';
 import { useNavigate } from 'react-router';
 
@@ -33,11 +33,12 @@ export default function BadgerLogout() {
         }
     }, [secondsRemaining]);
 
-    return <>
+    return <Container>
         <h1>Logout</h1>
+        <hr/>
         { !loginStatus && <>
             <p>You have been successfully logged out.</p>
             <p>Back to home in {secondsRemaining}</p>
         </>}
-    </>
+    </Container>
 }

@@ -56,44 +56,49 @@ export default function BadgerChatroom(props) {
 
     return <>
         <h1>{props.name} Chatroom</h1>
-        {
-            /* Allow an authenticated user to create a post. */
-            loginStatus?
-                <Form onSubmit={handlePostSubmit}>
-                    <Form.Label htmlFor="titleInput">Post Title</Form.Label>
-                    <Form.Control id="titleInput" value={title} onChange={(e) => setTitle(e.target.value)}></Form.Control>
-                    <br/>
-                    <Form.Label htmlFor="contentInput">Post Content</Form.Label>
-                    <Form.Control id="contentInput" value={content} onChange={(e) => setContent(e.target.value)}></Form.Control>
-                    <br/>
-                    <Button type="submit">Create Post</Button>
-                </Form>
-            :
-                <p>You must be logged in to post!</p>
-        }
         <hr/>
-        {
-            messages.length > 0 ?
-                <Row>
-                {
-                    /* Complete displaying of messages. */
-                    messages.map(item => {
-                        return <Col xs={12} sm={6} lg={4} xl={3} key={item.id}>
-                            <BadgerMessage
-                                id={item.id}
-                                title={item.title}
-                                poster={item.poster}
-                                content={item.content}
-                                created={item.created}
-                                loadMessages={loadMessages}
-                            ></BadgerMessage>
-                        </Col>
-                    })
-                }
-                </Row>
-            :
-                <p>There are no messages on this page yet!</p>
-        }
+        <Row>
+            {
+                /* Allow an authenticated user to create a post. */
+                loginStatus?
+                    <Col lg={3}>
+                        <Form onSubmit={handlePostSubmit}>
+                            <Form.Label htmlFor="titleInput">Post Title</Form.Label>
+                            <Form.Control id="titleInput" value={title} onChange={(e) => setTitle(e.target.value)}></Form.Control>
+                            <br/>
+                            <Form.Label htmlFor="contentInput">Post Content</Form.Label>
+                            <Form.Control id="contentInput" value={content} onChange={(e) => setContent(e.target.value)}></Form.Control>
+                            <br/>
+                            <Button type="submit">Create Post</Button>
+                        </Form>
+                    </Col>
+                :
+                    <p>You must be logged in to post!</p>
+            }
+            <Col>{
+                messages.length > 0 ?
+                    <Row>
+                    {
+                        /* Complete displaying of messages. */
+                        messages.map(item => {
+                            return <Col xs={12} sm={6} xl={4} xxl={3} key={item.id}>
+                                <BadgerMessage
+                                    id={item.id}
+                                    title={item.title}
+                                    poster={item.poster}
+                                    content={item.content}
+                                    created={item.created}
+                                    loadMessages={loadMessages}
+                                ></BadgerMessage>
+                            </Col>
+                        })
+                    }
+                    </Row>
+                :
+                    <p>There are no messages on this page yet!</p>
+            }</Col>
+        </Row>
+        <hr/>
         <Pagination>
             <Pagination.Item onClick={()=>setPage(1)} active={page===1}>{1}</Pagination.Item>
             <Pagination.Item onClick={()=>setPage(2)} active={page===2}>{2}</Pagination.Item>
