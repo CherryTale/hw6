@@ -8,3 +8,32 @@ Here is the [LINK](https://github.com/CS571-S24/hw6) to the source repository.
 * I also use react-bootstrap to create a responsive user interface.
 
 To run the program, you'll need a Badger ID.
+
+--------------------------------
+
+### Some Screenshots
+
+#### 1. Navigation Bar
+
+![](_figures/step1.png)
+
+#### 2. Chatroom
+
+![](_figures/step2.png)
+![](_figures/step3.png)
+
+#### 3. Registration
+
+![](_figures/step4.png)
+
+#### 4. Login
+
+![](_figures/step5.png)
+
+#### 5. Logout
+
+![](_figures/step6.png)
+
+#### 6: Delete Posts
+
+![](_figures/step7.png)
