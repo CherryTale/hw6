@@ -34,6 +34,6 @@ To run the program, you'll need a Badger ID.
 
 ![](_figures/step6.png)
 
-#### 6: Delete Posts
+#### 6. Delete Posts
 
 ![](_figures/step7.png)
