@@ -8,6 +8,8 @@ This repository hosts a project called BadgerChat, an online chatroom/forum.
 
 To run the program, you'll need a Badger ID.
 
+There is also a mobile version of this App, check [here](https://github.com/CherryTale/my-BadgerChat-mobile).
+
 --------------------------------
 
 ### Some Screenshots
